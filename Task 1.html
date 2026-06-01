@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Chopde | Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- Global Reset & Variables --- */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea, #764ba2); /* Task assigned gradient style */
+            --dark-color: #0f172a;
+            --light-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo a {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #764ba2;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #764ba2;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 85vh;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content h2 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 35px auto;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--white);
+            color: #764ba2;
+            padding: 12px 32px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: #fff0f5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- Global Section Title Layout --- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: #764ba2;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-gradient);
+            bottom: -5px;
+            left: 25px;
+            border-radius: 2px;
+        }
+
+        /* --- Education Section --- */
+        #education {
+            padding: 80px 0 40px 0;
+        }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .edu-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(118, 75, 162, 0.06);
+            transition: var(--transition);
+        }
+
+        .edu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(118, 75, 162, 0.08);
+        }
+
+        .edu-card .icon {
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .edu-card h3 {
+            font-size: 1.25rem;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+        }
+
+        .edu-card h4 {
+            font-size: 1rem;
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .edu-card .timeline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* --- Skills Section --- */
+        #skills {
+            padding: 40px 0 80px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            border-top: 4px solid #667eea;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .python i { color: #3776AB; }
+        .cpp i { color: #00599C; }
+        .c-lang i { color: #A8B9CC; }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+        }
+
+        /* --- Contact Section & Footer --- */
+        #contact {
+            background: var(--dark-color);
+            color: #e2e8f0;
+            padding: 60px 0 20px 0;
+        }
+
+        .contact-box {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-box h2 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .info-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .info-link:hover {
+            color: var(--white);
+            transform: scale(1.02);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #334155;
+            margin: 40px 0 20px 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* --- Responsive Media Queries --- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar container">
+            <div class="logo">
+                <a href="#">PIYUSH<span>.</span></a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content container">
+            <h1>Hi, I'm Piyush Chopde</h1>
+            <h2>B.Tech CSE Third Year Student</h2>
+            <p>Passionate about crafting clean structural code architectures and developing modern technological software solutions.</p>
+            <a href="#education" class="btn">Explore Profile</a>
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <div class="section-title">
+            <h2>Academic Background</h2>
+        </div>
+        <div class="edu-grid">
+            <div class="edu-card">
+                <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>B.Tech in Computer Science Engineering</h3>
+                <h4>Symbiosis Institute of Technology (SIT), Nagpur</h4>
+                <p class="timeline">Third Year (TY) Current</p>
+            </div>
+            <div class="edu-card">
+                <div class="icon"><i class="fas fa-certificate"></i></div>
+                <h3>Polytechnic Diploma in Computer Science</h3>
+                <h4>G H Raisoni Polytechnic</h4>
+                <p class="timeline">Completed</p>
+            </div>
+            <div class="edu-card">
+                <div class="icon"><i class="fas fa-school"></i></div>
+                <h3>SSC - Secondary School Certificate</h3>
+                <h4>Gayatri High School, Nandanvan Nagpur</h4>
+                <p class="timeline">Completed</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <div class="section-title">
+            <h2>Technical Toolkit</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card python">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+            </div>
+            <div class="skill-card cpp">
+                <i class="fas fa-code"></i>
+                <h3>C++</h3>
+            </div>
+            <div class="skill-card c-lang">
+                <i class="fas fa-terminal"></i>
+                <h3>C Language</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Let's Connect</h2>
+                <p>Feel free to reach out for internship collaborations, coding projects, or technical queries.</p>
+                
+                <a href="mailto:piyush.chopade.batch2024@sitnagpur.siu.edu.in" class="info-link">
+                    <i class="fas fa-envelope"></i> piyush.chopade.batch2024@sitnagpur.siu.edu.in
+                </a>
+                
+                <a href="tel:+917249337222" class="info-link">
+                    <i class="fas fa-phone-alt"></i> +91 7249337xxx
+                </a>
+            </div>
+            
+            <hr>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Piyush Chopde. All Rights Reserved.</p>
+                <p>Designed as part of Web Development Task 1</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
